@@ -2,7 +2,6 @@ package dariocecchinato.entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -12,7 +11,7 @@ public abstract class Publication {
     @Id
     private String codiceISBN;
     private String titolo;
-    private LocalDate annoPubblicazione;
+    private int annoPubblicazione;
     private int numeroPagine;
 
     @OneToMany(mappedBy = "elementoPrestato")
@@ -21,7 +20,7 @@ public abstract class Publication {
     //***********************************  Costruttori  ****************************************************
 
 
-    public Publication(String codiceISBN, String titolo, LocalDate annoPubblicazione, int numeroPagine) {
+    public Publication(String codiceISBN, String titolo, int annoPubblicazione, int numeroPagine) {
         this.codiceISBN = codiceISBN;
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
@@ -46,11 +45,11 @@ public abstract class Publication {
         this.titolo = titolo;
     }
 
-    public LocalDate getAnnoPubblicazione() {
+    public int getAnnoPubblicazione() {
         return annoPubblicazione;
     }
 
-    public void setAnnoPubblicazione(LocalDate annoPubblicazione) {
+    public void setAnnoPubblicazione(int annoPubblicazione) {
         this.annoPubblicazione = annoPubblicazione;
     }
 

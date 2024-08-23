@@ -35,10 +35,8 @@ public class Application {
             Random random = new Random();
             String codiceISBN = bookFaker.code().isbn10();
             String titolo = bookFaker.book().title();
-            LocalDate annoPubblicazione = LocalDate.of(
-                    bookFaker.number().numberBetween(1900, 2024),
-                    bookFaker.number().numberBetween(1, 12),
-                    bookFaker.number().numberBetween(1, 28));
+            int annoPubblicazione =
+                    bookFaker.number().numberBetween(1900, 2024);
             int numeroPagine = bookFaker.number().numberBetween(100, 1000);
             String autore = bookFaker.book().author();
             Genere genere = Genere.values()[random.nextInt(Genere.values().length)];
@@ -57,10 +55,7 @@ public class Application {
             Random random = new Random();
             String codiceISBN = bookFaker.code().isbn10();
             String titolo = bookFaker.book().title();
-            LocalDate annoPubblicazione = LocalDate.of(
-                    bookFaker.number().numberBetween(1980, 2024),
-                    bookFaker.number().numberBetween(1, 12),
-                    bookFaker.number().numberBetween(1, 28));
+            int annoPubblicazione = bookFaker.number().numberBetween(1980, 2024);
             int numeroPagine = bookFaker.number().numberBetween(20, 60);
             Periodicita periodicita = Periodicita.values()[random.nextInt(Periodicita.values().length)];
             return new Rivista(codiceISBN, titolo, annoPubblicazione, numeroPagine, periodicita);
@@ -94,10 +89,10 @@ public class Application {
         //***********************************  Richiamo con un FindAll le altre lista da DB  *********************
 
         List<Publication> publicationsFromDb = pd.findAll();
-        publicationsFromDb.forEach(System.out::println);
+        //publicationsFromDb.forEach(System.out::println);
 
         List<Utente> utentiFromDb = ud.findAll();
-        utentiFromDb.forEach(System.out::println);
+        //utentiFromDb.forEach(System.out::println);
 
 
         //***********************************  Creo  Prestiti con Faker  *****************************
@@ -124,9 +119,30 @@ public class Application {
         };
 
         //***********************************  Salvo i Prestiti su DB  ****************************************
-        for (int i = 0; i < 20; i++) {  // Creazione e salvataggio di 20 prestiti
+        /*for (int i = 0; i < 20; i++) {  // Creazione e salvataggio di 20 prestiti
             prd.save(randomPrestitoSupplier.get());
-        }
+        }*/
+
+
+        //***********************************  Delete libro from db  ****************************************
+        //ld.delete("0004124456");
+
+        //***********************************  FIND BY YEAR  ****************************************
+        System.out.println("Ricerca per anno");
+        System.out.println(pd.findByYear(1984));
+
+
+        //***********************************  FIND BY AUTORE  ****************************************
+
+        System.out.println("Ricerca per Autore");
+        System.out.println(pd.findByAuthor("Millard Lynch"));
+
+        //***********************************  FIND BY TITOLO O PARTE DI ESSO ****************************************
+
+        System.out.println("Ricerca per titolo");
+        System.out.println(pd.findByTitolo("ths of Glor"));
+        ;
+
 
     }
 }

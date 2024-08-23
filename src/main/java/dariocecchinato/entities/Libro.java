@@ -4,8 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 
-import java.time.LocalDate;
-
 @Entity
 public class Libro extends Publication {
     private String autore;
@@ -15,7 +13,7 @@ public class Libro extends Publication {
     //***********************************  Costruttori  ****************************************************
 
 
-    public Libro(String codiceISBN, String titolo, LocalDate annoPubblicazione, int numeroPagine, String autore, Genere genere) {
+    public Libro(String codiceISBN, String titolo, int annoPubblicazione, int numeroPagine, String autore, Genere genere) {
         super(codiceISBN, titolo, annoPubblicazione, numeroPagine);
         this.autore = autore;
         this.genere = genere;

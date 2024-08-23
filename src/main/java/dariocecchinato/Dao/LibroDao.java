@@ -39,7 +39,7 @@ public class LibroDao {
         }
     }
 
-    //*************************************  Metodo FINDBYISBN  & DELETE****************************************
+    //*************************************  Metodo FindByISBN & Delete ****************************************
 
     public void delete(String isbnRivista) {
         Libro found = this.getByISBN(isbnRivista);
@@ -50,4 +50,17 @@ public class LibroDao {
         System.out.println("Il Libro " + found.getTitolo() + " è stato rimosso");
 
     }
+
+    //*************************************  Metodo FindByYear  ****************************************
+    /*public List<Libro> findByYear(int annoPubblicazione) {
+        TypedQuery<Libro> query = em.createQuery(
+                "SELECT l FROM Libro l WHERE l.annoPubblicazione = :annoPubblicazione",
+                Libro.class);
+        query.setParameter("annoPubblicazione", annoPubblicazione);
+        return query.getResultList();
+    }*/
+
+    //*************************************  Metodo FindByYear  ****************************************
+
+
 }

@@ -50,4 +50,6 @@ public class PrestitoDao {
         System.out.println("Il Prestito di " + found.getElementoPrestato() + " è stato rimosso");
 
     }
+
+
 }
