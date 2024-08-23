@@ -129,29 +129,35 @@ public class Application {
 
         //***********************************  FIND BY YEAR  ****************************************
         System.out.println("Ricerca per anno");
-        System.out.println(pd.findByYear(1984));
+        List<Publication> libriPerAnno = pd.findByYear(1984);
+        System.out.println(libriPerAnno);
 
 
         //***********************************  FIND BY AUTORE  ****************************************
 
         System.out.println("Ricerca per Autore");
-        System.out.println(pd.findByAuthor("Millard Lynch"));
+        List<Publication> libriPerAutore = pd.findByAuthor("Millard Lynch");
+        System.out.println(libriPerAutore);
+
 
         //***********************************  FIND BY TITOLO O PARTE DI ESSO ****************************************
 
         System.out.println("Ricerca per titolo");
-        System.out.println(pd.findByTitolo("ths of Glor"));
+        List<Publication> libriPerTitolo = pd.findByTitolo("ths of Glor");
+        System.out.println(libriPerTitolo);
 
 
         //***********************************  FIND PUBLICATIONS ATTUALMENTE IN PRESTITO PER TESSERA ****************************************
 
         System.out.println("Ricerca prestito per tessera");
-        System.out.println(prd.findPublicationPrestateperTessera(2));
+        List<Prestito> prestitoPerTessera = prd.findPublicationPrestateperTessera(2);
+        System.out.println(prestitoPerTessera);
 
 
         //*********************************** FIND PRESTITI SCADUTI NON RESTITUITI ****************************************
 
         System.out.println("Ricerca prestiti scaduti non restituiti");
-        System.out.println(prd.findPrestitiScadutiNonRestituiti());
+        List<Prestito> prestitiScadutiNonRestituiti = prd.findPrestitiScadutiNonRestituiti();
+        System.out.println(prestitiScadutiNonRestituiti);
     }
 }
