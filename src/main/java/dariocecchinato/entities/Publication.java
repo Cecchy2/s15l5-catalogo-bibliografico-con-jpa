@@ -19,7 +19,6 @@ public abstract class Publication {
 
     //***********************************  Costruttori  ****************************************************
 
-
     public Publication(String codiceISBN, String titolo, int annoPubblicazione, int numeroPagine) {
         this.codiceISBN = codiceISBN;
         this.titolo = titolo;
@@ -62,6 +61,7 @@ public abstract class Publication {
     }
 
     //*********************************** Metodo ToString   ****************************************************
+
     @Override
     public String toString() {
         return "Publication{" +

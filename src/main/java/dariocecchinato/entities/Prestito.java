@@ -24,7 +24,6 @@ public class Prestito {
 
     //***********************************  Costruttori  ****************************************************
 
-
     public Prestito(Utente utente, Publication elementoPrestato, LocalDate dataInizioPrestito, LocalDate dataRestituzionePrevista, LocalDate dataRestituzioneEffettiva) {
         this.utente = utente;
         this.elementoPrestato = elementoPrestato;
@@ -37,7 +36,6 @@ public class Prestito {
     }
 
     //***********************************  Getter & Setter  ****************************************************
-
 
     public LocalDate getDataInizioPrestito() {
         return dataInizioPrestito;
@@ -76,7 +74,6 @@ public class Prestito {
     }
 
     //*********************************** Metodo ToString   ****************************************************
-
 
     @Override
     public String toString() {
