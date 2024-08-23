@@ -1,25 +1,22 @@
 package dariocecchinato.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 public class Libro extends Publication {
     private String autore;
+    @Enumerated(EnumType.STRING)
     private Genere genere;
 
     //***********************************  Costruttori  ****************************************************
 
 
-    public Libro(String codiceISBN, String titolo, LocalDate annoPubblicazione, int numeroPagine, List<Prestito> prestiti, String autore, Genere genere) {
-        super(codiceISBN, titolo, annoPubblicazione, numeroPagine, prestiti);
-        this.autore = autore;
-        this.genere = genere;
-    }
-
-    public Libro(String autore, Genere genere) {
+    public Libro(String codiceISBN, String titolo, LocalDate annoPubblicazione, int numeroPagine, String autore, Genere genere) {
+        super(codiceISBN, titolo, annoPubblicazione, numeroPagine);
         this.autore = autore;
         this.genere = genere;
     }
@@ -51,9 +48,10 @@ public class Libro extends Publication {
 
     @Override
     public String toString() {
-        return "Libro{" +
-                "autore='" + autore + '\'' +
-                ", genere=" + genere +
-                '}';
+        return "Libro: " +
+                "Titolo= '" + getTitolo() + '\'' +
+                " Autore= '" + autore + '\'' +
+                ", genere= " + genere +
+                ' ';
     }
 }

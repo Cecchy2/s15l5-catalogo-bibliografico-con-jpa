@@ -1,19 +1,21 @@
 package dariocecchinato.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 public class Rivista extends Publication {
+    @Enumerated(EnumType.STRING)
     private Periodicita periodicita;
 
     //***********************************  Costruttori  ****************************************************
 
 
-    public Rivista(String codiceISBN, String titolo, LocalDate annoPubblicazione, int numeroPagine, List<Prestito> prestiti, Periodicita periodicita) {
-        super(codiceISBN, titolo, annoPubblicazione, numeroPagine, prestiti);
+    public Rivista(String codiceISBN, String titolo, LocalDate annoPubblicazione, int numeroPagine, Periodicita periodicita) {
+        super(codiceISBN, titolo, annoPubblicazione, numeroPagine);
         this.periodicita = periodicita;
     }
 

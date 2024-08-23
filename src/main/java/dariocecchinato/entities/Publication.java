@@ -21,12 +21,12 @@ public abstract class Publication {
     //***********************************  Costruttori  ****************************************************
 
 
-    public Publication(String codiceISBN, String titolo, LocalDate annoPubblicazione, int numeroPagine, List<Prestito> prestiti) {
+    public Publication(String codiceISBN, String titolo, LocalDate annoPubblicazione, int numeroPagine) {
         this.codiceISBN = codiceISBN;
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
         this.numeroPagine = numeroPagine;
-        this.prestiti = prestiti;
+
     }
 
     public Publication() {
