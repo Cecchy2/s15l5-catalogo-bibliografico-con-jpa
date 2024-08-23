@@ -4,17 +4,16 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 public class Utente {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long numeroTessera;
     private String Nome;
     private String Cognome;
     private LocalDate dataDiNascita;
-    private int numeroTessera;
+
 
     @OneToMany(mappedBy = "utente")
     private List<Prestito> prestiti;
@@ -22,10 +21,9 @@ public class Utente {
     //***********************************  Costruttori  ****************************************************
 
 
-    public Utente(String nome, String cognome, int numeroTessera, LocalDate dataDiNascita) {
+    public Utente(String nome, String cognome, LocalDate dataDiNascita) {
         Nome = nome;
         Cognome = cognome;
-        this.numeroTessera = numeroTessera;
         this.dataDiNascita = dataDiNascita;
     }
 
@@ -35,8 +33,8 @@ public class Utente {
     //***********************************  Getter & Setter  ****************************************************
 
 
-    public UUID getId() {
-        return id;
+    public List<Prestito> getPrestiti() {
+        return prestiti;
     }
 
     public String getNome() {
@@ -63,13 +61,10 @@ public class Utente {
         this.dataDiNascita = dataDiNascita;
     }
 
-    public int getNumeroTessera() {
+    public long getNumeroTessera() {
         return numeroTessera;
     }
 
-    public void setNumeroTessera(int numeroTessera) {
-        this.numeroTessera = numeroTessera;
-    }
 
     //*********************************** Metodo ToString   ****************************************************
 
@@ -77,7 +72,6 @@ public class Utente {
     @Override
     public String toString() {
         return "Utente{" +
-                "id=" + id +
                 ", Nome='" + Nome + '\'' +
                 ", Cognome='" + Cognome + '\'' +
                 ", dataDiNascita=" + dataDiNascita +

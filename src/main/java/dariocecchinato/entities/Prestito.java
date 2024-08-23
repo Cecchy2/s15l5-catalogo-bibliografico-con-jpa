@@ -25,7 +25,8 @@ public class Prestito {
     //***********************************  Costruttori  ****************************************************
 
 
-    public Prestito(Publication elementoPrestato, LocalDate dataInizioPrestito, LocalDate dataRestituzionePrevista, LocalDate dataRestituzioneEffettiva) {
+    public Prestito(Utente utente, Publication elementoPrestato, LocalDate dataInizioPrestito, LocalDate dataRestituzionePrevista, LocalDate dataRestituzioneEffettiva) {
+        this.utente = utente;
         this.elementoPrestato = elementoPrestato;
         this.dataInizioPrestito = dataInizioPrestito;
         this.dataRestituzionePrevista = dataRestituzionePrevista;

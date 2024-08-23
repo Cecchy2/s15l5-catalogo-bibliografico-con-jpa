@@ -4,6 +4,9 @@ import dariocecchinato.entities.Utente;
 import dariocecchinato.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
+
+import java.util.List;
 
 public class UtenteDao {
 
@@ -49,5 +52,10 @@ public class UtenteDao {
         transaction.commit();
         System.out.println("La Utente " + found.getNome() + " è stata rimossa");
 
+    }
+
+    public List<Utente> findAll() {
+        TypedQuery<Utente> query = em.createQuery("SELECT p FROM Utente p", Utente.class);
+        return query.getResultList();
     }
 }
