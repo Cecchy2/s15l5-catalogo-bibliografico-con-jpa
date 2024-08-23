@@ -4,6 +4,9 @@ import dariocecchinato.entities.Prestito;
 import dariocecchinato.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
+
+import java.util.List;
 
 public class PrestitoDao {
 
@@ -51,5 +54,11 @@ public class PrestitoDao {
 
     }
 
-
+    public List<Prestito> findPublicationPrestateperTessera(int numeroTessera) {
+        TypedQuery<Prestito> query = em.createQuery(
+                "SELECT p FROM Prestito p WHERE p.utente.numeroTessera = :numeroTessera AND  p.dataRestituzioneEffettiva IS NULL", Prestito.class
+        );
+        query.setParameter("numeroTessera", numeroTessera);
+        return query.getResultList();
+    }
 }

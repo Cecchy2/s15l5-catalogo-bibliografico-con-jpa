@@ -141,8 +141,12 @@ public class Application {
 
         System.out.println("Ricerca per titolo");
         System.out.println(pd.findByTitolo("ths of Glor"));
-        ;
 
+
+        //***********************************  FIND PUBLICATIONS ATTUALMENTE IN PRESTITO PER TESSERA ****************************************
+
+        System.out.println("Ricerca prestito per tessera");
+        System.out.println(prd.findPublicationPrestateperTessera(2));
 
     }
 }
