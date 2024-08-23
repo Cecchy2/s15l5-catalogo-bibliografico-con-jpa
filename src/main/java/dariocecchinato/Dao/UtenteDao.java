@@ -17,7 +17,6 @@ public class UtenteDao {
     }
 
     //*************************************  Metodo SAVE  ****************************************
-
     public void save(Utente utente) {
         //1.
         EntityTransaction transaction = em.getTransaction();
@@ -32,7 +31,6 @@ public class UtenteDao {
     }
 
     //*************************************  Metodo FINDBYISBN  ****************************************
-
     public Utente getById(String idUtente) {
         Utente found = em.find(Utente.class, idUtente);
         if (found == null) {
@@ -43,7 +41,6 @@ public class UtenteDao {
     }
 
     //*************************************  Metodo FINDBYISBN  & DELETE****************************************
-
     public void delete(String idUtente) {
         Utente found = this.getById(idUtente);
         EntityTransaction transaction = em.getTransaction();
@@ -54,6 +51,7 @@ public class UtenteDao {
 
     }
 
+    //*************************************  Metodo FINDALL****************************************
     public List<Utente> findAll() {
         TypedQuery<Utente> query = em.createQuery("SELECT p FROM Utente p", Utente.class);
         return query.getResultList();

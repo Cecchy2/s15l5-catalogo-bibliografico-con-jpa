@@ -18,7 +18,6 @@ public class PrestitoDao {
     }
 
     //*************************************  Metodo SAVE  ****************************************
-
     public void save(Prestito prestito) {
         //1.
         EntityTransaction transaction = em.getTransaction();
@@ -33,7 +32,6 @@ public class PrestitoDao {
     }
 
     //*************************************  Metodo FINDBYISBN  ****************************************
-
     public Prestito getById(String idPrestito) {
         Prestito found = em.find(Prestito.class, idPrestito);
         if (found == null) {
@@ -44,7 +42,6 @@ public class PrestitoDao {
     }
 
     //*************************************  Metodo FINDBYISBN  & DELETE****************************************
-
     public void delete(String idPrestito) {
         Prestito found = this.getById(idPrestito);
         EntityTransaction transaction = em.getTransaction();
@@ -54,7 +51,6 @@ public class PrestitoDao {
         System.out.println("Il Prestito di " + found.getElementoPrestato() + " è stato rimosso");
 
     }
-
 
     //*********************************** Metodo FIND PUBLICATIONS ATTUALMENTE IN PRESTITO PER TESSERA ****************************************
     public List<Prestito> findPublicationPrestateperTessera(int numeroTessera) {

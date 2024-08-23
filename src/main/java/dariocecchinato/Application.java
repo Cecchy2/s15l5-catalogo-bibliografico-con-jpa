@@ -29,7 +29,6 @@ public class Application {
         PrestitoDao prd = new PrestitoDao(em);
 
         //***********************************  Creo Libri Random con Faker  *****************************
-
         Supplier<Libro> randomLibroSupplier = () -> {
             Faker bookFaker = new Faker();
             Random random = new Random();
@@ -49,7 +48,6 @@ public class Application {
         }*/
 
         //***********************************  Creo Libri Random con Faker  *****************************
-
         Supplier<Rivista> randomRivistaSupplier = () -> {
             Faker bookFaker = new Faker();
             Random random = new Random();
@@ -67,36 +65,31 @@ public class Application {
         }*/
 
         //***********************************  Creo Utenti con Faker  *****************************
-
         Supplier<Utente> randomUtenteSupplier = () -> {
             Faker f = new Faker(Locale.ITALY);
 
             String nomeUtente = f.lebowski().character();
             String cognomeUtente = f.name().lastName();
-            LocalDate annoDiNascita = LocalDate.of(f.number().numberBetween(1980, 2024),
+            LocalDate annoDiNascita = LocalDate.of(
+                    f.number().numberBetween(1980, 2024),
                     f.number().numberBetween(1, 12),
                     f.number().numberBetween(1, 28));
-
             return new Utente(nomeUtente, cognomeUtente, annoDiNascita);
         };
 
         //***********************************  Salvo gi Utenti su DB  ****************************************
-
         /*for (int i = 0; i < 10; i++) {
             ud.save(randomUtenteSupplier.get());
         }*/
 
         //***********************************  Richiamo con un FindAll le altre lista da DB  *********************
-
         List<Publication> publicationsFromDb = pd.findAll();
         //publicationsFromDb.forEach(System.out::println);
 
         List<Utente> utentiFromDb = ud.findAll();
         //utentiFromDb.forEach(System.out::println);
 
-
         //***********************************  Creo  Prestiti con Faker  *****************************
-
         Supplier<Prestito> randomPrestitoSupplier = () -> {
             Faker prestitoFaker = new Faker();
             Random random = new Random();
@@ -123,7 +116,6 @@ public class Application {
             prd.save(randomPrestitoSupplier.get());
         }*/
 
-
         //***********************************  Delete libro from db  ****************************************
         //ld.delete("0004124456");
 
@@ -134,28 +126,21 @@ public class Application {
 
 
         //***********************************  FIND BY AUTORE  ****************************************
-
         System.out.println("Ricerca per Autore");
         List<Publication> libriPerAutore = pd.findByAuthor("Millard Lynch");
         System.out.println(libriPerAutore);
 
-
         //***********************************  FIND BY TITOLO O PARTE DI ESSO ****************************************
-
         System.out.println("Ricerca per titolo");
         List<Publication> libriPerTitolo = pd.findByTitolo("ths of Glor");
         System.out.println(libriPerTitolo);
 
-
         //***********************************  FIND PUBLICATIONS ATTUALMENTE IN PRESTITO PER TESSERA ****************************************
-
         System.out.println("Ricerca prestito per tessera");
         List<Prestito> prestitoPerTessera = prd.findPublicationPrestateperTessera(2);
         System.out.println(prestitoPerTessera);
 
-
         //*********************************** FIND PRESTITI SCADUTI NON RESTITUITI ****************************************
-
         System.out.println("Ricerca prestiti scaduti non restituiti");
         List<Prestito> prestitiScadutiNonRestituiti = prd.findPrestitiScadutiNonRestituiti();
         System.out.println(prestitiScadutiNonRestituiti);

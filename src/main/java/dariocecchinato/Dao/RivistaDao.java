@@ -14,7 +14,6 @@ public class RivistaDao {
     }
 
     //*************************************  Metodo SAVE  ****************************************
-
     public void save(Rivista rivista) {
         //1.
         EntityTransaction transaction = em.getTransaction();
@@ -29,7 +28,6 @@ public class RivistaDao {
     }
 
     //*************************************  Metodo FINDBYISBN  ****************************************
-
     public Rivista getByISBN(String isbnRivista) {
         Rivista found = em.find(Rivista.class, isbnRivista);
         if (found == null) {
@@ -40,7 +38,6 @@ public class RivistaDao {
     }
 
     //*************************************  Metodo FINDBYISBN  & DELETE****************************************
-
     public void delete(String isbnRivista) {
         Rivista found = this.getByISBN(isbnRivista);
         EntityTransaction transaction = em.getTransaction();
