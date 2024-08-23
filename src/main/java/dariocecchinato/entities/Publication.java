@@ -15,6 +15,7 @@ public abstract class Publication {
     private int numeroPagine;
 
     @OneToMany(mappedBy = "elementoPrestato")
+    //Ogni pubblicazione (Libro o Rivista) potrà essere prestato tante volte
     private List<Prestito> prestiti;
 
     //***********************************  Costruttori  ****************************************************

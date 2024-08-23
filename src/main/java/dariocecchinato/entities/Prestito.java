@@ -11,10 +11,12 @@ public class Prestito {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     @ManyToOne
+    // Un solo Utente potrà possedere più prestiti
     @JoinColumn(name = "utente_id")
     private Utente utente;
 
     @ManyToOne
+    //Avremi sicuramente più prestiti di singole Pubblicazioni (Libri o Riviste)
     @JoinColumn(name = "publication_id")
     private Publication elementoPrestato;
 

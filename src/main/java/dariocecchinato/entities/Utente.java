@@ -16,10 +16,11 @@ public class Utente {
 
 
     @OneToMany(mappedBy = "utente")
+    // Un solo Utente puo possedere più prestiti
     private List<Prestito> prestiti;
 
     //***********************************  Costruttori  ****************************************************
-    
+
     public Utente(String nome, String cognome, LocalDate dataDiNascita) {
         Nome = nome;
         Cognome = cognome;
