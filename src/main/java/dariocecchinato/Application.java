@@ -148,5 +148,10 @@ public class Application {
         System.out.println("Ricerca prestito per tessera");
         System.out.println(prd.findPublicationPrestateperTessera(2));
 
+
+        //*********************************** FIND PRESTITI SCADUTI NON RESTITUITI ****************************************
+
+        System.out.println("Ricerca prestiti scaduti non restituiti");
+        System.out.println(prd.findPrestitiScadutiNonRestituiti());
     }
 }

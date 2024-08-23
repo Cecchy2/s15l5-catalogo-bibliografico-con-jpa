@@ -6,6 +6,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class PrestitoDao {
@@ -54,6 +55,8 @@ public class PrestitoDao {
 
     }
 
+
+    //*********************************** Metodo FIND PUBLICATIONS ATTUALMENTE IN PRESTITO PER TESSERA ****************************************
     public List<Prestito> findPublicationPrestateperTessera(int numeroTessera) {
         TypedQuery<Prestito> query = em.createQuery(
                 "SELECT p FROM Prestito p WHERE p.utente.numeroTessera = :numeroTessera AND  p.dataRestituzioneEffettiva IS NULL", Prestito.class
@@ -61,4 +64,14 @@ public class PrestitoDao {
         query.setParameter("numeroTessera", numeroTessera);
         return query.getResultList();
     }
+
+    //*********************************** Metodo FIND PRESTITI SCADUTI NON RESTITUITI ****************************************
+    public List<Prestito> findPrestitiScadutiNonRestituiti() {
+        TypedQuery<Prestito> query = em.createQuery(
+                "SELECT p FROM Prestito p WHERE p.dataRestituzionePrevista < :today AND p.dataRestituzioneEffettiva IS NULL",
+                Prestito.class);
+        query.setParameter("today", LocalDate.now());
+        return query.getResultList();
+    }
+
 }
