@@ -11,7 +11,6 @@ public class Rivista extends Publication {
 
     //***********************************  Costruttori  ****************************************************
 
-
     public Rivista(String codiceISBN, String titolo, int annoPubblicazione, int numeroPagine, Periodicita periodicita) {
         super(codiceISBN, titolo, annoPubblicazione, numeroPagine);
         this.periodicita = periodicita;
@@ -22,7 +21,6 @@ public class Rivista extends Publication {
 
     //***********************************  Getter & Setter  ****************************************************
 
-
     public Periodicita getPeriodicita() {
         return periodicita;
     }
@@ -32,7 +30,6 @@ public class Rivista extends Publication {
     }
 
     //*********************************** Metodo ToString   ****************************************************
-
 
     @Override
     public String toString() {

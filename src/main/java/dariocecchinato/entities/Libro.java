@@ -12,7 +12,6 @@ public class Libro extends Publication {
 
     //***********************************  Costruttori  ****************************************************
 
-
     public Libro(String codiceISBN, String titolo, int annoPubblicazione, int numeroPagine, String autore, Genere genere) {
         super(codiceISBN, titolo, annoPubblicazione, numeroPagine);
         this.autore = autore;
@@ -23,7 +22,6 @@ public class Libro extends Publication {
     }
 
     //***********************************  Getter & Setter  ****************************************************
-
 
     public String getAutore() {
         return autore;
@@ -42,7 +40,6 @@ public class Libro extends Publication {
     }
 
     //*********************************** Metodo ToString   ****************************************************
-
 
     @Override
     public String toString() {

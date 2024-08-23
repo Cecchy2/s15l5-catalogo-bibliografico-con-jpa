@@ -19,8 +19,7 @@ public class Utente {
     private List<Prestito> prestiti;
 
     //***********************************  Costruttori  ****************************************************
-
-
+    
     public Utente(String nome, String cognome, LocalDate dataDiNascita) {
         Nome = nome;
         Cognome = cognome;
@@ -31,7 +30,6 @@ public class Utente {
     }
 
     //***********************************  Getter & Setter  ****************************************************
-
 
     public List<Prestito> getPrestiti() {
         return prestiti;
@@ -67,7 +65,6 @@ public class Utente {
 
 
     //*********************************** Metodo ToString   ****************************************************
-
 
     @Override
     public String toString() {
